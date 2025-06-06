@@ -1,0 +1,266 @@
+/* style.css mejorado */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #f0f4ff, #e4ecf7);
+  min-height: 100vh;
+  padding: 20px;
+  color: #333;
+  cursor: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at 30% 30%, #ff9a9e, transparent 40%),
+              radial-gradient(circle at 70% 70%, #fad0c4, transparent 40%),
+              radial-gradient(circle at 50% 50%, #fbc2eb, transparent 40%);
+  animation: mover 10s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes mover {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+form {
+  background: rgba(255, 255, 255, 0.9);
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  border: 3px solid transparent;
+  animation: rgb-border 5s linear infinite;
+}
+
+#login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  text-align: center;
+  border: 3px solid transparent;
+  animation: rgb-border 5s linear infinite;
+}
+
+@keyframes rgb-border {
+  0% { border-color: red; }
+  25% { border-color: orange; }
+  50% { border-color: lime; }
+  75% { border-color: cyan; }
+  100% { border-color: red; }
+}
+
+input[type="text"],
+input[type="date"],
+input[type="password"],
+select,
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-group span {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+#lista-tareas {
+  max-width: 500px;
+  margin: 0 auto;
+  list-style: none;
+  border: 3px solid transparent;
+  animation: rgb-border 5s linear infinite;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#lista-tareas li {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-left: 6px solid #0077cc;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+#lista-tareas li.urgente {
+  border-left-color: #e74c3c;
+}
+
+#lista-tareas li.eliminando {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+#lista-tareas button {
+  background-color: #dc3545;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+#lista-tareas button:hover {
+  background-color: #c82333;
+}
+
+.cursor {
+  font-size: 24px;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  animation: brillo 1.5s infinite alternate;
+  color: #fcd34d;
+  text-shadow: 0 0 5px #facc15, 0 0 10px #fcd34d;
+}
+
+@keyframes brillo {
+  from {
+    text-shadow: 0 0 5px #facc15, 0 0 10px #fcd34d;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    text-shadow: 0 0 10px #facc15, 0 0 20px #fcd34d;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+#lista-tareas li.prioridad-baja {
+  border-left-color: #2ecc71;
+}
+
+#lista-tareas li.prioridad-media {
+  border-left-color: #f1c40f;
+}
+
+#lista-tareas li.prioridad-alta {
+  border-left-color: #e74c3c;
+  font-weight: bold;
+}
+
+.oculto {
+  display: none;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 9999;
+}
+
+#toast.visible {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-shadow: none;
+  }
+
+  #login-container,
+  form,
+  #lista-tareas {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .input-group span {
+    font-size: 20px;
+  }
+
+  #lista-tareas li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  #lista-tareas button {
+    width: 100%;
+  }
+
+  #toast {
+    width: 90%;
+    font-size: 14px;
+  }
+}

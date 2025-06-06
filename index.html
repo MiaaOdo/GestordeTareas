@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Tareas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="cursor" id="cursor" aria-label="Cursor decorativo">⭐</div>
+
+  <!-- Toast -->
+  <div id="toast" class="oculto"></div>
+
+  <!-- Login -->
+  <div id="login-container">
+    <h1>Iniciar Sesión</h1>
+    <form id="login-form">
+      <label for="usuario">Usuario</label>
+      <input type="text" id="usuario" placeholder="Usuario" required>
+
+      <label for="contrasena">Contraseña</label>
+      <div class="input-group">
+        <input type="password" id="contrasena" placeholder="Contraseña" required>
+        <span id="toggle-pass" title="Mostrar/Ocultar Contraseña">👁️</span>
+      </div>
+
+      <button type="submit">Entrar</button>
+    </form>
+    <p id="login-error" class="error oculto">Usuario o contraseña incorrectos</p>
+  </div>
+
+  <!-- Gestor de tareas -->
+  <div id="app" class="oculto">
+    <h1>Gestor de Tareas</h1>
+    <form id="form-tarea">
+      <label for="tarea">Tarea</label>
+      <input type="text" id="tarea" placeholder="Escribe tu tarea" required>
+
+      <label for="fecha">Fecha de vencimiento</label>
+      <input type="date" id="fecha" required>
+
+      <label for="prioridad">Prioridad</label>
+      <select id="prioridad" required>
+        <option value="" disabled selected>Selecciona prioridad</option>
+        <option value="baja">Baja</option>
+        <option value="media">Media</option>
+        <option value="alta">Alta</option>
+      </select>
+
+      <button type="submit">Agregar</button>
+    </form>
+    <ul id="lista-tareas"></ul>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const cursor = document.getElementById("cursor");
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+    });
+  </script>
+</body>
+</html>
