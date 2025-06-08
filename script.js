@@ -1,5 +1,3 @@
-// script.js mejorado
-
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("login-form");
   const loginContainer = document.getElementById("login-container");
@@ -9,7 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const toast = document.getElementById("toast");
 
   const USUARIO = "admin";
-  const CONTRASENA = "1234";
+  const CONTRASENA = "123";
+  const logoutBtn = document.getElementById("logout-btn");
+
+logoutBtn.addEventListener("click", () => {
+  app.classList.add("oculto");
+  loginContainer.classList.remove("oculto");
+  document.getElementById("login-form").reset();
+  errorMsg.classList.add("oculto");
+});
+
 
   togglePass.addEventListener("click", () => {
     const passInput = document.getElementById("contrasena");

@@ -1,5 +1,3 @@
-/* style.css mejorado */
-
 * {
   margin: 0;
   padding: 0;
@@ -263,4 +261,25 @@ button:hover {
     width: 90%;
     font-size: 14px;
   }
+  .logout {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.logout:hover {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
 }
